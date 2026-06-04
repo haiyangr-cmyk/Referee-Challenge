@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;World Cup Referee Challenge&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">body {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: Arial;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:#0b1c2c;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color:#fff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align:center;</p>
+<p class="p1">}</p>
+<p class="p1">.container {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding:20px;</p>
+<p class="p1">}</p>
+<p class="p1">.button {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display:block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin:15px auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding:15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width:80%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width:300px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:#ffcc00;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color:#000;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor:pointer;</p>
+<p class="p1">}</p>
+<p class="p1">.hidden { display:none; }</p>
+<p class="p1">.card {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:#123;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding:20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:12px;</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="container"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 选角色 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;⚽ 裁判挑战&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="button" onclick="startGame('good')"&gt;传奇裁判&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="button" onclick="startGame('evil')"&gt;黑哨传奇&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 游戏界面 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="game" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 id="progress"&gt;&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="question"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="answers"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 结果 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="result" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 id="resultText"&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="explain"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="button" onclick="next()"&gt;下一关&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">// 示例关卡（来自文档）</p>
+<p class="p1">const levels = [</p>
+<p class="p1">{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>q:"C罗手臂自然张开碰到球，进球是否有效？",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>options:["有效","无效"],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>answer:0,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explain:"手臂自然位置，不算手球"</p>
+<p class="p1">},</p>
+<p class="p1">{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>q:"德国球员越位半个肩，进球有效吗？",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>options:["有效","无效"],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>answer:0,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explain:"整体越位才算"</p>
+<p class="p1">},</p>
+<p class="p1">{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>q:"飞铲踢膝盖，应如何判罚？",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>options:["红牌","黄牌"],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>answer:0,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>explain:"危险动作直接红牌"</p>
+<p class="p1">}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">let current = 0;</p>
+<p class="p1">let score = 0;</p>
+<p class="p1">let mode = "good";</p>
+<p class="p2"><br></p>
+<p class="p1">function startGame(m){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>mode = m;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("start").classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("game").classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showQuestion();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function showQuestion(){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let level = levels[current];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("progress").innerText =<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>"第 " + (current+1) + " 关";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("question").innerText = level.q;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let html = "";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>level.options.forEach((opt,i)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>html += `&lt;div class="button" onclick="choose(${i})"&gt;${opt}&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("answers").innerHTML = html;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function choose(i){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let level = levels[current];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("game").classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("result").classList.remove("hidden");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(mode==="good"){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(i===level.answer){</p>
+<p class="p1"><span class="Apple-converted-space">            </span>score++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("resultText").innerText="✅ 判罚正确";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}else{</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("resultText").innerText="❌ 判罚错误";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("explain").innerText=level.explain;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}else{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("resultText").innerText="😈 越黑越强！";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("explain").innerText="黑哨评分+1";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function next(){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>current++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(current&gt;=levels.length){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("游戏结束！得分："+score);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>location.reload();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("result").classList.add("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("game").classList.remove("hidden");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showQuestion();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
